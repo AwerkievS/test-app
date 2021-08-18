@@ -12,6 +12,8 @@ class Email extends Model
 
     use HasFactory;
 
+    protected $table = 'client_emails';
+
     protected $fillable = [
         'email'
     ];

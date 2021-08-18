@@ -12,8 +12,10 @@ class Phone extends Model
 
     use HasFactory;
 
+    protected $table = 'client_phones';
+
     protected $fillable = [
-        'phone'
+        'phone',
     ];
 
     public static function newFactory(): PhoneFactory
