@@ -36,7 +36,7 @@ services:
             APP_ENV: local
             APP_DEBUG: 'true'
             HOME: /home/user
-            PASH: /
+            PATH: /scripts:/scripts/aliases:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
         command: keep-alive.sh
         depends_on:
             - db
@@ -82,8 +82,9 @@ services:
         restart: always
         environment:
             MYSQL_DATABASE: *db-name
-            POSTGRES_USER: *db-username
-            POSTGRES_PASSWORD: *db-pass
+            MYSQL_USER: *db-username
+            MYSQL_PASSWORD: *db-pass
+            MYSQL_ROOT_PASSWORD: root
         volumes:
             - db-data:/var/lib/postgresql/data:rw
         ports: [ *db-port, '3306:3306' ] # Port 15432 for connecting from localhost using, for example, data-grip
